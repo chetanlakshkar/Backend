@@ -28,7 +28,7 @@ app.use(bodyParser.json())
 app.use('/api/v1',userroute)
 app.use(express.json())
 app.get('/',(req,res)=>{
-  res.send("Hello Guy's Welcome To Mongo Curd Application")
+  res.send("Hello Guy's Welcome To Mongo Curd Demo for changes")
 })
 const mongoose = require('mongoose')
 mongoose.connect(MONGOURL,{
