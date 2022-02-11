@@ -9,6 +9,7 @@ router.post("/signup", (req, res) => {
         fullname, email, companyname, password, confirmpassword
     } = req.body
     console.log(req.body);
+    console.log()
     const newuser = new User({
         fullname,
         email,
