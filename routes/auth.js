@@ -8,7 +8,7 @@ router.post("/signup", (req, res) => {
     let {
         fullname, email, companyname, password, confirmpassword
     } = req.body
-    console.log(req.body);
+  
     const newuser = new User({
         fullname,
         email,
@@ -16,6 +16,7 @@ router.post("/signup", (req, res) => {
         password,
         confirmpassword,
     })
+    console.log(req.body,newuser);
     User.find({ email: req.body.email }, (err, docs) => {
         if (docs.length > 0) {
             res.send('email already registerd')
