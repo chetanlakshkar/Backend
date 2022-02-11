@@ -49,10 +49,11 @@ router.post('/login',(req,res)=>{
                 _id:docs[0]._id,
                 email:docs[0].email
             }
-            res.send(user)
+            
+            res.status(200).json({message:' login successfull',data:user})
             console.log(user)
         }else{
-             return res.status(400).json({message:'Invalid Credentials'})
+             return res.status(400).json({message:' Invalid Credentials'})
         }
     })
 })
