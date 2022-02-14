@@ -42,7 +42,7 @@ router.post("/signup", (req, res) => {
                 if (!err) {
                     transporter.sendMail({
                         to:newuser.email,
-                    from:'khatriankur14@gmail.com',
+                        from:'khatriankur14@gmail.com',
                         subject:'signup success',
                         html:"<h1>welcome to feedfleet</h1>"
                     })
@@ -96,7 +96,7 @@ router.post('/login',async(req,res)=>{
             if(!ismatch){
                 res.status(400).json({error:'invelid credantial'})
             }else{
-                res.json({message:'user signin successfully'})
+                res.json({message:'user signin successfull',token:token})
             }
         }else{
             res.status(400).json({error:'invelid credentials'})
