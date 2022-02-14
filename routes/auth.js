@@ -96,6 +96,7 @@ router.post('/login',async(req,res)=>{
             if(!ismatch){
                 res.status(400).json({error:'invelid credantial'})
             }else{
+                localStorage.setItem('jwt',token)
                 res.json({message:'user signin successfull',token:token})
             }
         }else{
