@@ -89,7 +89,7 @@ router.post('/login',async(req,res)=>{
             const ismatch = await bcrypt.compare(password,userlogin.password)
             const token =await userlogin.generateAuthToken()
             console.log(token)
-            res.cookie('jwtoken',token,{
+            res.cookie('jwtokensssss',token,{
                 expires:new Date(Date.now()+25892000000),
                 httpOnly:true
             })
