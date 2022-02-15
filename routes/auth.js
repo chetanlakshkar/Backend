@@ -8,6 +8,7 @@ const sendgridtransport = require('nodemailer-sendgrid-transport')
 const { response } = require('express')
 const bcrypt = require('bcryptjs/dist/bcrypt')
 const jwt = require('jsonwebtoken')
+const { use } = require('express/lib/router')
 
 
 const transporter = nodemailer.createTransport(sendgridtransport({
@@ -81,26 +82,30 @@ router.post('/login',async(req,res)=>{
     })*/
     try{
         const {email,password}=req.body
+    
         if(!email||!password){
             return res.status(400).json({error:'please filled the data'})
         }
         const userlogin = await User.findOne({email:email}) 
+       
         if(userlogin){
             const ismatch = await bcrypt.compare(password,userlogin.password)
+            console.log(ismatch)
             const token =await userlogin.generateAuthToken()
-            console.log(token)
-            res.cookie('jwtokensssss',token,{
+            
+            res.cookie('jwtoken',token,{
                 expires:new Date(Date.now()+25892000000),
                 httpOnly:true
             })
             if(!ismatch){
                 res.status(400).json({error:'invelid credantial'})
             }else{
-                localStorage.setItem('jwt',token)
+               
+
                 res.json({message:'user signin successfull',token:token})
             }
         }else{
-            res.status(400).json({error:'invelid credentials'})
+            res.status(400).json({error:'invelid credentialsfffffffffff'})
         }
     }catch(err){
         console.log(err)
