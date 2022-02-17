@@ -131,7 +131,7 @@ router.post('/reset-password',(req,res)=>{
                     from:"khatriankur14@gmail.com",
                     subject:'password reset',
                     html:`<p>you requested for password reset</p>
-                    <h5>click in this <a href="http://localhost:3000/reset/${token}">link</a> to reset password</h5>`
+                    <h5>click in this <a href="http://localhost:3000/reset-password/${token}">link</a> to reset password</h5>`
                 })
                 response.json({message:"check your email"})
             })
